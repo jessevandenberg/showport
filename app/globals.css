@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Utility tweaks */
+.container-max { max-width: 72rem; }
+
+/* --- Background layers to mirror Figma --- */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+}
+
+/* subtle radial vignette */
+.bg-vignette {
+  position: absolute;
+  inset: -20% -10% -10% -10%;
+  background: radial-gradient(ellipse at center, rgba(14,14,14,0.9) 0%, rgba(0,0,0,1) 60%);
+}
+
+/* dotted grid overlay */
+.bg-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+/* glowing blobs */
+.blob { position: absolute; filter: blur(60px); opacity: .35; }
+.blob-indigo { background: #312e81; }
+.blob-fuchsia { background: #6d28d9; }
+.blob-blue { background: #1e40af; }
+
+/* geometric accents */
+.shape { position: absolute; border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(0.5px); }
+.shape-circle { border-radius: 9999px; }
+.shape-square { }
+.shape-diamond { transform: rotate(45deg); }
+.shape-triangle {
+  width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 30px solid rgba(255,255,255,.12);
+}
+.shape-hex {
+  width: 46px; height: 26px; background: transparent; border: none; position: absolute;
+}
+.shape-hex::before, .shape-hex::after {
+  content: ""; position: absolute; width: 0; border-left: 23px solid transparent; border-right: 23px solid transparent;
+}
+.shape-hex::before { bottom: 100%; border-bottom: 13px solid rgba(255,255,255,.12); }
+.shape-hex::after { top: 100%; border-top: 13px solid rgba(255,255,255,.12); }
