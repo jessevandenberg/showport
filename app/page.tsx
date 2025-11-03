@@ -206,9 +206,9 @@ const Projects = () => {
       image: "/KNMI.png",
     },
     {
-      title: "Portfolio CMS",
-      description: "Content management system for portfolio websites with drag-and-drop builder and SEO optimization.",
-      tags: ["Next.js", "Prisma", "Auth"],
+      title: "Valorant Verse Admin Hub",
+      description: " een admin hub voor de valorant verse website. hier kun je de kleuren van de website aanpassen van de website beheren en deze opslaan door een ingebouwde database.",
+      tags: ["Next.js", "TypeScript", "tailwindcss"],
       code: "https://github.com/jessevandenberg/valorant-verse-admin-hub",
       demo: "https://valorant-verse-admin-hub.vercel.app/",
       image: "/valorant-admin.png",
