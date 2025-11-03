@@ -1,6 +1,8 @@
 "use client";
 
+import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const SectionHeading = ({ title, accent }: { title: string; accent?: string }) => (
   <h2 className="mx-auto mb-8 max-w-5xl px-6 text-center text-3xl font-semibold text-zinc-200 md:text-4xl">
@@ -17,7 +19,7 @@ const Navbar = () => {
   ];
   return (
     <nav className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-base text-zinc-300">
-      <span className="rounded bg-zinc-900/60 px-3 py-1 font-mono text-xs text-sky-400 ring-1 ring-white/10">&lt;ICT/&gt;</span>
+      <span className="rounded bg-zinc-900/60 px-3 py-1 font-mono text-xs text-sky-400 ring-1 ring-white/10">ShowPort</span>
       <ul className="flex items-center gap-6 rounded-full bg-zinc-900/50 px-4 py-2 ring-1 ring-white/10">
         {navItems.map((item) => (
           <li key={item.href}>
@@ -36,22 +38,45 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative mx-auto flex min-h-[92vh] w-full max-w-7xl flex-col items-center justify-center gap-8 px-8 pt-28">
-      <p className="text-6xl font-semibold text-white md:text-7xl lg:text-8xl">
+    <section
+      id="home"
+      className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center gap-8 px-8 pt-28"
+    >
+      <p className="bg-gradient-to-r from-purple-400 to-sky-500 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+        portfolio
+      </p>
+      <p className="-mt-6 text-6xl font-semibold text-white md:text-7xl lg:text-8xl">
         Jesse van den Berg
       </p>
-      <p className="-mt-6 text-3xl font-bold text-sky-400/60">portfolio</p>
       <div className="mt-6 flex items-center gap-4">
         <a
           href="#projects"
-          className="rounded-full bg-sky-600/80 px-5 py-3 text-base font-medium text-white shadow hover:bg-sky-500/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
+          className="flex items-center gap-2 rounded-md bg-sky-600 px-5 py-2.5 text-sm font-medium text-white shadow transition-colors hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
         >
-          View My Work
+          View My Work →
         </a>
-        <div className="flex items-center gap-3 text-zinc-400">
-          <Link aria-label="GitHub" href="#" className="rounded p-3 ring-1 ring-white/10 hover:text-white">GH</Link>
-          <Link aria-label="LinkedIn" href="#" className="rounded p-3 ring-1 ring-white/10 hover:text-white">IN</Link>
-          <Link aria-label="Mail" href="#contact" className="rounded p-3 ring-1 ring-white/10 hover:text-white">@</Link>
+        <div className="flex items-center gap-2 text-zinc-400">
+          <Link
+            aria-label="GitHub"
+            href="#"
+            className="rounded-full border border-white/10 p-2.5 transition-colors hover:bg-white/5 hover:text-white"
+          >
+            <Github size={18} />
+          </Link>
+          <Link
+            aria-label="LinkedIn"
+            href="#"
+            className="rounded-full border border-white/10 p-2.5 transition-colors hover:bg-white/5 hover:text-white"
+          >
+            <Linkedin size={18} />
+          </Link>
+          <Link
+            aria-label="Mail"
+            href="#contact"
+            className="rounded-full border border-white/10 p-2.5 transition-colors hover:bg-white/5 hover:text-white"
+          >
+            <Mail size={18} />
+          </Link>
         </div>
       </div>
     </section>
@@ -96,12 +121,29 @@ type Project = {
   tags: string[];
   code?: string;
   demo?: string;
+  image?: string; // path in /public or absolute URL
 };
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/60">
-      <div className="h-40 w-full bg-zinc-800/60" />
+      <div className="relative h-40 w-full overflow-hidden">
+        {project.image ? (
+          <>
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              className="object-cover opacity-80"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={false}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-zinc-950/10 to-transparent" />
+          </>
+        ) : (
+          <div className="h-full w-full bg-zinc-800/60" />
+        )}
+      </div>
       <div className="p-5">
         <p className="text-sm font-semibold text-zinc-200">{project.title}</p>
         <p className="mt-2 line-clamp-3 text-xs text-zinc-400">{project.description}</p>
@@ -114,10 +156,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
         <div className="mt-4 flex items-center gap-2">
           {project.code ? (
-            <a href={project.code} className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 hover:bg-white/5">Code</a>
+            <a href={project.code} target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 hover:bg-white/5">Code</a>
           ) : null}
           {project.demo ? (
-            <a href={project.demo} className="rounded-full bg-sky-600/80 px-3 py-1 text-xs text-white hover:bg-sky-500/80">Live Demo</a>
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-sky-600/80 px-3 py-1 text-xs text-white hover:bg-sky-500/80">Live Demo</a>
           ) : null}
           <button className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 hover:bg-white/5">meer info</button>
         </div>
@@ -130,17 +172,19 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: "ISOwise",
-      description: "isopal platform",
+      description: "een platform die steun geeft bij het behalen van de ISO 9001 certificering",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
       code: "#",
       demo: "#",
+      image: "/digitaal-dierenpaspoort.png",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates and team collaboration features.",
-      tags: ["Next.js", "TypeScript", "Supabase", "Turborepo"],
-      code: "#",
-      demo: "#",
+      title: "digitaal dierenpaspoort",
+      description: " een prototype van een digitaal dierenpaspoort voor de mensen in nederland",
+      tags: ["Next.js", "TypeScript", "tailwindcss"],
+      code: "https://github.com/jessevandenberg/digitaledierenpaspoort",
+      demo: "https://digitaledierenpaspoort.vercel.app/",
+      image: "/digitaal-dierenpaspoort.png",
     },
     {
       title: "Weather Forecast App",
@@ -148,6 +192,7 @@ const Projects = () => {
       tags: ["OpenWeather", "Map", "PWA"],
       code: "#",
       demo: "#",
+      image: "/digitaal-dierenpaspoort.png",
     },
     {
       title: "Portfolio CMS",
@@ -155,6 +200,7 @@ const Projects = () => {
       tags: ["Next.js", "Prisma", "Auth"],
       code: "#",
       demo: "#",
+      image: "/digitaal-dierenpaspoort.png",
     },
   ];
   return (
