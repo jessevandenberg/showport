@@ -214,3 +214,18 @@ body {
 .float-delay-2 { animation-delay: 2.2s !important; }
 .float-delay-3 { animation-delay: 3.1s !important; }
 .float-delay-4 { animation-delay: 4.5s !important; }
+
+/* Side glows along page edges */
+.side-glow {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.22;
+  mix-blend-mode: screen;
+}
+.side-glow--blue {
+  background: radial-gradient(ellipse at center, rgba(59,130,246,0.6), transparent 60%);
+}
+.side-glow--purple {
+  background: radial-gradient(ellipse at center, rgba(168,85,247,0.55), transparent 60%);
+}

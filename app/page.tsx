@@ -126,42 +126,53 @@ type Project = {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/60">
-      <div className="relative h-40 w-full overflow-hidden">
+    <div className="group relative overflow-hidden rounded-3xl ring-1 ring-white/10">
+      {/* split gradient background */}
+      <div className="absolute inset-0 -z-10 bg-[conic-gradient(from_140deg_at_60%_40%,rgba(168,85,247,0.25),rgba(59,130,246,0.25),rgba(236,72,153,0.2),transparent_70%)] opacity-60" />
+      {/* angled sheen */}
+      <div className="pointer-events-none absolute -left-1/2 top-0 h-[200%] w-[120%] -rotate-12 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+      {/* header media */}
+      <div className="relative h-44 w-full overflow-hidden">
         {project.image ? (
           <>
             <Image
               src={project.image}
               alt={`${project.title} preview`}
               fill
-              className="object-cover opacity-80"
+              className="object-cover brightness-[0.95] contrast-[1.05] transition-transform duration-500 group-hover:scale-[1.04]"
               sizes="(max-width: 768px) 100vw, 50vw"
-              priority={false}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-zinc-950/10 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/10 to-transparent" />
           </>
         ) : (
           <div className="h-full w-full bg-zinc-800/60" />
         )}
       </div>
+
+      {/* body */}
       <div className="p-5">
-        <p className="text-sm font-semibold text-zinc-200">{project.title}</p>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="h-1.5 w-6 rounded-full bg-sky-400/70" />
+          <span className="h-1.5 w-6 rounded-full bg-fuchsia-400/70" />
+        </div>
+        <p className="text-sm font-semibold text-zinc-100">{project.title}</p>
         <p className="mt-2 line-clamp-3 text-xs text-zinc-400">{project.description}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {project.tags.map((t) => (
-            <span key={t} className="rounded-full bg-zinc-800 px-2 py-1 text-[10px] text-zinc-300 ring-1 ring-white/10">
+            <span key={t} className="rounded-md bg-zinc-800/70 px-2 py-1 text-[10px] text-zinc-300 ring-1 ring-white/10">
               {t}
             </span>
           ))}
         </div>
         <div className="mt-4 flex items-center gap-2">
           {project.code ? (
-            <a href={project.code} target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 hover:bg-white/5">Code</a>
+            <a href={project.code} target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5">Code</a>
           ) : null}
           {project.demo ? (
-            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-sky-600/80 px-3 py-1 text-xs text-white hover:bg-sky-500/80">Live Demo</a>
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:from-fuchsia-500 hover:to-purple-500">Live Demo</a>
           ) : null}
-          <button className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 hover:bg-white/5">meer info</button>
+          <button className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5">meer info</button>
         </div>
       </div>
     </div>
@@ -174,9 +185,9 @@ const Projects = () => {
       title: "ISOwise",
       description: "een platform die steun geeft bij het behalen van de ISO 9001 certificering",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      code: "#",
+      code: "https://github.com/jessevandenberg/isowise",
       demo: "#",
-      image: "/digitaal-dierenpaspoort.png",
+      image: "/isowise.png",
     },
     {
       title: "digitaal dierenpaspoort",
@@ -187,20 +198,20 @@ const Projects = () => {
       image: "/digitaal-dierenpaspoort.png",
     },
     {
-      title: "Weather Forecast App",
+      title: "KNMI promotie website",
       description: "Real-time weather application with location-based forecasts and interactive weather maps.",
-      tags: ["OpenWeather", "Map", "PWA"],
-      code: "#",
-      demo: "#",
-      image: "/digitaal-dierenpaspoort.png",
+      tags: ["typescript", "Next.js", "tailwindcss"],
+      code: "https://github.com/jessevandenberg/knmi-app-website",
+      demo: "https://knmi-website.vercel.app/",
+      image: "/KNMI.png",
     },
     {
       title: "Portfolio CMS",
       description: "Content management system for portfolio websites with drag-and-drop builder and SEO optimization.",
       tags: ["Next.js", "Prisma", "Auth"],
-      code: "#",
-      demo: "#",
-      image: "/digitaal-dierenpaspoort.png",
+      code: "https://github.com/jessevandenberg/valorant-verse-admin-hub",
+      demo: "https://valorant-verse-admin-hub.vercel.app/",
+      image: "/valorant-admin.png",
     },
   ];
   return (
