@@ -3,6 +3,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import Swal from "sweetalert2";
 
 const SectionHeading = ({ title, accent }: { title: string; accent?: string }) => (
   <h2 className="mx-auto mb-8 max-w-5xl px-6 text-center text-3xl font-semibold text-zinc-200 md:text-4xl">
@@ -170,7 +171,28 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <a href={project.code} target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5">Code</a>
           ) : null}
           {project.demo ? (
-            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:from-fuchsia-500 hover:to-purple-500">Live Demo</a>
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                if (project.title.toLowerCase() === "isowise") {
+                  e.preventDefault();
+                  void Swal.fire({
+                    icon: "error",
+                    title: "Geen live demo",
+                    text: "De ISOwise demo is niet publiek beschikbaar.",
+                    confirmButtonText: "Sluiten",
+                    background: "#0a0a0a",
+                    color: "#e5e7eb",
+                    confirmButtonColor: "#0ea5e9",
+                  });
+                }
+              }}
+              className="rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:from-fuchsia-500 hover:to-purple-500"
+            >
+              Live Demo
+            </a>
           ) : null}
           <button className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5">meer info</button>
         </div>
@@ -185,7 +207,7 @@ const Projects = () => {
       title: "ISOwise",
       description: "een platform die steun geeft bij het behalen van de ISO 9001 certificering",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      code: "https://github.com/jessevandenberg/isowise",
+      code: "https://github.com/lucasBFontys/isowise",
       demo: "#",
       image: "/isowise.png",
     },
@@ -199,7 +221,7 @@ const Projects = () => {
     },
     {
       title: "KNMI promotie website",
-      description: "Real-time weather application with location-based forecasts and interactive weather maps.",
+      description: "",
       tags: ["typescript", "Next.js", "tailwindcss"],
       code: "https://github.com/jessevandenberg/knmi-app-website",
       demo: "https://knmi-website.vercel.app/",
