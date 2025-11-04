@@ -398,7 +398,7 @@ const ImageOverlapStack = () => {
           if (hovered !== null && hovered !== i) {
             const distance = Math.abs(i - (hovered as number));
             const dir = i < (hovered as number) ? -1 : 1;
-            shift = dir * (distance === 1 ? 32 : 20);
+            shift = dir * (distance === 1 ? 28 : 18);
           }
 
           const translateX = baseX + shift;
