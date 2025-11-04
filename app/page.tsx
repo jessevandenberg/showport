@@ -376,11 +376,11 @@ export default function Home() {
 // Overlapped hover stack: images overlap; on hover, neighbors shift slightly
 const ImageOverlapStack = () => {
   const images = [
+    "/uitzicht.jpeg",
+    "mallorca1.jpeg",
     "/portfoliofoto.png",
+    "/mallorca2.jpeg",
     "/398cb77a-a330-4781-bd90-29f64f702994.jpeg",
-    "/isowise.png",
-    "/digitaal-dierenpaspoort.png",
-    "/valorant-admin.png",
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
