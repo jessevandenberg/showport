@@ -393,7 +393,7 @@ const ImageOverlapStack = () => {
     <div className="relative mx-auto mt-12 h-[26rem] w-full max-w-6xl select-none px-4 md:h-[28rem]">
       <div className="relative h-full w-full">
         {images.map((src, i) => {
-          const baseX = (i - centerIndex) * 52; // spacing with strong overlap
+          const baseX = (i - centerIndex) * 100; // spacing with strong overlap
           let shift = 0;
           if (hovered !== null && hovered !== i) {
             const distance = Math.abs(i - (hovered as number));
@@ -405,8 +405,11 @@ const ImageOverlapStack = () => {
           const scale = hovered === i ? baseScale[i] + 0.06 : hovered === null ? baseScale[i] : baseScale[i] - 0.02;
           const z = hovered === i ? 50 : 20 + i + (i === centerIndex ? 10 : 0);
           const opacity = hovered === null || hovered === i ? 0.98 : 0.8;
-          const rotate = hovered === i ? rotations[i] * 0.4 : rotations[i];
-          const translateY = (hovered === i ? baseLiftY[i] - 6 : baseLiftY[i]);
+          const rotate = (i - centerIndex) * 4;
+          const distanceFromCenter = Math.abs(i - centerIndex);
+          const baseTranslateY = distanceFromCenter * 10; // hoe verder van midden, hoe lager
+          const translateY =
+            (hovered === i ? baseTranslateY - 6 : baseTranslateY);
 
           return (
             <div
