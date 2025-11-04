@@ -106,7 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      <h3 className="mt-12 text-center text-3xl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h3>
+      <h2 className="mt-12 text-center text-3xl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h2>
       {/* Hover Image Stack Animation (overlapped with neighbor shift) */}
       <ImageOverlapStack />
     </section>
@@ -380,7 +380,7 @@ const ImageOverlapStack = () => {
     "mallorca1.jpeg",
     "/portfoliofoto.png",
     "/mallorca2.jpeg",
-    "/398cb77a-a330-4781-bd90-29f64f702994.jpeg",
+    "/skifoto.jpeg",
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
