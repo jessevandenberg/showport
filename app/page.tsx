@@ -1,9 +1,9 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import Swal from "sweetalert2";
+import { useState, MouseEvent } from "react";
 
 const SectionHeading = ({ title, accent }: { title: string; accent?: string }) => (
   <h2 className="mx-auto mb-8 max-w-5xl px-6 text-center text-3xl font-semibold text-zinc-200 md:text-4xl">
@@ -126,6 +126,15 @@ type Project = {
 };
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleDemoClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (project.title.toLowerCase() === "isowise") {
+      e.preventDefault();
+      setShowAlert(true);
+    }
+  };
+
   return (
     <div className="group relative overflow-hidden rounded-3xl ring-1 ring-white/10">
       {/* split gradient background */}
@@ -175,20 +184,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (project.title.toLowerCase() === "isowise") {
-                  e.preventDefault();
-                  void Swal.fire({
-                    icon: "error",
-                    title: "Geen live demo",
-                    text: "De ISOwise demo is niet publiek beschikbaar.",
-                    confirmButtonText: "Sluiten",
-                    background: "#0a0a0a",
-                    color: "#e5e7eb",
-                    confirmButtonColor: "#0ea5e9",
-                  });
-                }
-              }}
+              onClick={handleDemoClick}
               className="rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:from-fuchsia-500 hover:to-purple-500"
             >
               Live Demo
@@ -197,6 +193,36 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <button className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5">meer info</button>
         </div>
       </div>
+
+      {/* Sweet alert style modal (only shown when ISOwise demo is clicked) */}
+      {showAlert ? (
+        <div className="fixed inset-0 z-[60] grid place-items-center bg-black/60 p-4 backdrop-blur-sm" role="dialog" aria-modal>
+          <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/90 p-6 shadow-2xl">
+            <div className="absolute inset-x-0 -top-20 h-40 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.25),transparent_60%)]" />
+            <button
+              aria-label="Close"
+              onClick={() => setShowAlert(false)}
+              className="absolute right-3 top-3 rounded-md p-2 text-zinc-400 hover:bg-white/5 hover:text-white"
+            >
+              <X size={18} />
+            </button>
+            <div className="relative mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-fuchsia-600/20 text-fuchsia-400 ring-1 ring-fuchsia-500/30">
+              <X />
+            </div>
+            <p className="relative text-center text-sm text-zinc-300">
+              De live demo van ISOwise is momenteel niet publiek beschikbaar.
+            </p>
+            <div className="relative mt-5 flex justify-center gap-2">
+              <button
+                onClick={() => setShowAlert(false)}
+                className="rounded-md bg-zinc-800 px-4 py-2 text-xs text-zinc-200 ring-1 ring-white/10 hover:bg-zinc-700"
+              >
+                Sluiten
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
