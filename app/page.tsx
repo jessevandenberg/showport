@@ -106,7 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      <h3 className="mt-12 text-center text-xxl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h3>
+      <h3 className="mt-12 text-center text-3xl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h3>
       {/* Hover Image Stack Animation (overlapped with neighbor shift) */}
       <ImageOverlapStack />
     </section>
