@@ -263,7 +263,7 @@ const Projects = () => {
     {
       title: "ISOwise",
       description: "een platform die steun geeft bij het behalen van de ISO 9001 certificering",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      tags: ["Next.js", "TypeScript", "tailwindcss","groepsproject"],
       code: "https://github.com/lucasBFontys/isowise",
       demo: "#",
       image: "/isowise.png",
@@ -271,7 +271,7 @@ const Projects = () => {
     {
       title: "digitaal dierenpaspoort",
       description: " een prototype van een digitaal dierenpaspoort voor de mensen in nederland",
-      tags: ["Next.js", "TypeScript", "tailwindcss",],
+      tags: ["Next.js", "TypeScript", "tailwindcss","individueel project"],
       code: "https://github.com/jessevandenberg/digitaledierenpaspoort",
       demo: "https://digitaledierenpaspoort.vercel.app/",
       image: "/digitaal-dierenpaspoort.png",
@@ -279,7 +279,7 @@ const Projects = () => {
     {
       title: "KNMI promotie website",
       description: "dit is een website die ik heb gemaakt voor de KNMI om de promotie van de website te helpen.",
-      tags: ["typescript", "Next.js", "tailwindcss"],
+      tags: ["typescript", "Next.js", "tailwindcss","groepsproject"],
       code: "https://github.com/jessevandenberg/knmi-app-website",
       demo: "https://knmi-website.vercel.app/",
       image: "/KNMI.png",
@@ -287,7 +287,7 @@ const Projects = () => {
     {
       title: "Valorant Verse Admin Hub",
       description: " een admin hub voor de valorant verse website. hier kun je de kleuren van de website aanpassen van de website beheren en deze opslaan door een ingebouwde database.",
-      tags: ["Next.js", "TypeScript", "tailwindcss"],
+      tags: ["Next.js", "TypeScript", "tailwindcss","individueel project"],
       code: "https://github.com/jessevandenberg/valorant-verse-admin-hub",
       demo: "https://valorant-verse-admin-hub.vercel.app/",
       image: "/valorant-admin.png",
