@@ -106,7 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      <h3 className="mt-12 text-center text-xl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h3>
+      <h3 className="mt-12 text-center text-xxl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h3>
       {/* Hover Image Stack Animation (overlapped with neighbor shift) */}
       <ImageOverlapStack />
     </section>
@@ -384,35 +384,36 @@ const ImageOverlapStack = () => {
   ];
   const [hovered, setHovered] = useState<number | null>(null);
 
-  const center = (images.length - 1) / 2;
-  const rotations = [-12, -6, 0, 6, 12];
+  const centerIndex = Math.floor(images.length / 2);
+  const rotations = [-10, -5, 0, 5, 10];
+  const baseScale = [0.95, 0.98, 1.12, 0.98, 0.95]; // pyramid: center is biggest
+  const baseLiftY = [0, -4, -14, -4, 0]; // center lifted most
 
   return (
-    <div className="relative mx-auto mt-12 h-[22rem] w-full max-w-6xl select-none px-4 md:h-[24rem]">
+    <div className="relative mx-auto mt-12 h-[26rem] w-full max-w-6xl select-none px-4 md:h-[28rem]">
       <div className="relative h-full w-full">
         {images.map((src, i) => {
-          const baseX = (i - center) * 44; // tighter spacing => more overlap
+          const baseX = (i - centerIndex) * 52; // spacing with strong overlap
           let shift = 0;
           if (hovered !== null && hovered !== i) {
-            // push neighbors aside from hovered card
             const distance = Math.abs(i - (hovered as number));
             const dir = i < (hovered as number) ? -1 : 1;
-            shift = dir * (distance === 1 ? 28 : 18);
+            shift = dir * (distance === 1 ? 32 : 20);
           }
 
           const translateX = baseX + shift;
-          const scale = hovered === i ? 1.12 : hovered === null ? 1 : 0.98;
-          const z = hovered === i ? 40 : 10 + i;
-          const opacity = hovered === null || hovered === i ? 0.98 : 0.78;
+          const scale = hovered === i ? baseScale[i] + 0.06 : hovered === null ? baseScale[i] : baseScale[i] - 0.02;
+          const z = hovered === i ? 50 : 20 + i + (i === centerIndex ? 10 : 0);
+          const opacity = hovered === null || hovered === i ? 0.98 : 0.8;
           const rotate = hovered === i ? rotations[i] * 0.4 : rotations[i];
-          const translateY = hovered === i ? -8 : 0;
+          const translateY = (hovered === i ? baseLiftY[i] - 6 : baseLiftY[i]);
 
           return (
             <div
               key={i}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className="absolute left-1/2 top-1/2 h-64 w-44 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[28px] ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] md:h-72 md:w-52"
+              className="absolute left-1/2 top-1/2 h-80 w-56 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[30px] ring-1 ring-white/10 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.65)] md:h-96 md:w-64"
               style={{
                 transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate}deg) scale(${scale})`,
                 transition: "transform 320ms ease, opacity 320ms ease",
@@ -424,7 +425,7 @@ const ImageOverlapStack = () => {
                 src={src}
                 alt={`photo-${i + 1}`}
                 fill
-                sizes="(max-width: 768px) 80vw, 40vw"
+                sizes="(max-width: 768px) 85vw, 45vw"
                 className="object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
