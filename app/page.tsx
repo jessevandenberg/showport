@@ -106,32 +106,9 @@ const About = () => {
         </div>
       </div>
 
-      
-
-      {/* Hover Image Stack Animation */}
-      <div className="relative mx-auto mt-12 flex max-w-5xl items-center justify-center gap-4 px-4">
-        {[
-          "/portfoliofoto.png",
-          "/398cb77a-a330-4781-bd90-29f64f702994.jpeg",
-          "/isowise.png",
-          "/digitaal-dierenpaspoort.png",
-          "/KNMI.png",
-        ].map((src, i) => (
-          <div
-            key={i}
-            className="group relative h-64 w-40 overflow-hidden rounded-2xl ring-1 ring-white/10 transition-all duration-500 hover:z-10 hover:scale-110 md:h-72 md:w-48"
-          >
-            <Image
-              src={src}
-              alt={`photo-${i + 1}`}
-              fill
-              sizes="(max-width: 768px) 40vw, 20vw"
-              className="object-cover opacity-70 transition-all duration-500 group-hover:opacity-100"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
-          </div>
-        ))}
-      </div>
+      <h3 className="mt-12 text-center text-xl font-semibold text-zinc-200">photo’s of  <span className="text-sky-500">Me</span></h3>
+      {/* Hover Image Stack Animation (overlapped with neighbor shift) */}
+      <ImageOverlapStack />
     </section>
   );
 };
@@ -395,3 +372,62 @@ export default function Home() {
     </div>
   );
 }
+
+// Overlapped hover stack: images overlap; on hover, neighbors shift slightly
+const ImageOverlapStack = () => {
+  const images = [
+    "/portfoliofoto.png",
+    "/398cb77a-a330-4781-bd90-29f64f702994.jpeg",
+    "/isowise.png",
+    "/digitaal-dierenpaspoort.png",
+    "/KNMI.png",
+  ];
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const center = (images.length - 1) / 2; // for symmetric base positions
+
+  return (
+    <div className="relative mx-auto mt-12 h-72 w-full max-w-5xl select-none">
+      <div className="relative h-full w-full">
+        {images.map((src, i) => {
+          const baseX = (i - center) * 56; // base spacing (overlapped)
+          let shift = 0;
+          if (hovered !== null && hovered !== i) {
+            // push neighbors slightly away from the hovered image
+            shift = i < hovered ? -18 : 18;
+          }
+          const translate = baseX + shift;
+          const scale = hovered === i ? 1.08 : 1;
+          const z = hovered === i ? 30 : 10 + i; // ensure hover is on top
+          const opacity = hovered === null || hovered === i ? 0.95 : 0.7;
+          const rotate = hovered === i ? 0 : (i - center) * 1.5; // subtle tilt
+
+          return (
+            <div
+              key={i}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              className="absolute top-1/2 h-60 w-40 -translate-y-1/2 overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] md:h-64 md:w-48"
+              style={{
+                transform: `translateX(${translate}px) rotate(${rotate}deg) scale(${scale})`,
+                transition: "transform 300ms ease, opacity 300ms ease",
+                zIndex: z,
+                opacity,
+                left: "50%",
+              }}
+            >
+              <Image
+                src={src}
+                alt={`photo-${i + 1}`}
+                fill
+                sizes="(max-width: 768px) 40vw, 20vw"
+                className="object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
