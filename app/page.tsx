@@ -20,7 +20,7 @@ const Navbar = () => {
   ];
   return (
     <nav className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-base text-zinc-300">
-      <span className="rounded bg-zinc-900/60 px-3 py-1 font-mono text-xs text-sky-400 ring-1 ring-white/10">ShowPort</span>
+      <span className="rounded bg-zinc-900/60 px-3 py-1 font-mono text-xs text-sky-400 ring-1 ring-white/10">Jesse van den Berg</span>
       <ul className="flex items-center gap-6 rounded-full bg-zinc-900/50 px-4 py-2 ring-1 ring-white/10">
         {navItems.map((item) => (
           <li key={item.href}>
