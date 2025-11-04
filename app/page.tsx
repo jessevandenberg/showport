@@ -106,12 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      <h3 className="mt-12 text-center text-xl font-semibold text-zinc-200">photo’s of <span className="text-sky-500">Me</span></h3>
-      <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
-        {Array.from({ length: 4 }).map((_, idx) => (
-          <div key={idx} className="aspect-video rounded-2xl border border-white/10 bg-zinc-900/50" />
-        ))}
-      </div>
+      
 
       {/* Hover Image Stack Animation */}
       <div className="relative mx-auto mt-12 flex max-w-5xl items-center justify-center gap-4 px-4">
