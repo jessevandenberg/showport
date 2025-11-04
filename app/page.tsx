@@ -384,43 +384,47 @@ const ImageOverlapStack = () => {
   ];
   const [hovered, setHovered] = useState<number | null>(null);
 
-  const center = (images.length - 1) / 2; // for symmetric base positions
+  const center = (images.length - 1) / 2;
+  const rotations = [-12, -6, 0, 6, 12];
 
   return (
-    <div className="relative mx-auto mt-12 h-72 w-full max-w-5xl select-none">
+    <div className="relative mx-auto mt-12 h-[22rem] w-full max-w-6xl select-none px-4 md:h-[24rem]">
       <div className="relative h-full w-full">
         {images.map((src, i) => {
-          const baseX = (i - center) * 56; // base spacing (overlapped)
+          const baseX = (i - center) * 44; // tighter spacing => more overlap
           let shift = 0;
           if (hovered !== null && hovered !== i) {
-            // push neighbors slightly away from the hovered image
-            shift = i < hovered ? -18 : 18;
+            // push neighbors aside from hovered card
+            const distance = Math.abs(i - (hovered as number));
+            const dir = i < (hovered as number) ? -1 : 1;
+            shift = dir * (distance === 1 ? 28 : 18);
           }
-          const translate = baseX + shift;
-          const scale = hovered === i ? 1.08 : 1;
-          const z = hovered === i ? 30 : 10 + i; // ensure hover is on top
-          const opacity = hovered === null || hovered === i ? 0.95 : 0.7;
-          const rotate = hovered === i ? 0 : (i - center) * 1.5; // subtle tilt
+
+          const translateX = baseX + shift;
+          const scale = hovered === i ? 1.12 : hovered === null ? 1 : 0.98;
+          const z = hovered === i ? 40 : 10 + i;
+          const opacity = hovered === null || hovered === i ? 0.98 : 0.78;
+          const rotate = hovered === i ? rotations[i] * 0.4 : rotations[i];
+          const translateY = hovered === i ? -8 : 0;
 
           return (
             <div
               key={i}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className="absolute top-1/2 h-60 w-40 -translate-y-1/2 overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] md:h-64 md:w-48"
+              className="absolute left-1/2 top-1/2 h-64 w-44 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[28px] ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] md:h-72 md:w-52"
               style={{
-                transform: `translateX(${translate}px) rotate(${rotate}deg) scale(${scale})`,
-                transition: "transform 300ms ease, opacity 300ms ease",
+                transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate}deg) scale(${scale})`,
+                transition: "transform 320ms ease, opacity 320ms ease",
                 zIndex: z,
                 opacity,
-                left: "50%",
               }}
             >
               <Image
                 src={src}
                 alt={`photo-${i + 1}`}
                 fill
-                sizes="(max-width: 768px) 40vw, 20vw"
+                sizes="(max-width: 768px) 80vw, 40vw"
                 className="object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
