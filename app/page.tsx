@@ -316,7 +316,7 @@ const Contact = () => {
         <div className="space-y-4">
           <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 p-5 text-base text-zinc-300">
             <span className="rounded-md bg-zinc-800 px-2 py-1 text-xs">Email</span>
-            <a href="mailto:vdbregjesse019@gmail.com" className="truncate hover:underline">vdbregjesse019@gmail.com</a>
+            <a href="mailto:vdbregjesse019@gmail.com" className="truncate hover:underline">vdbergjesse2018@gmail.com</a>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 p-5 text-base text-zinc-300">
             <span className="rounded-md bg-zinc-800 px-2 py-1 text-xs">Phone</span>
