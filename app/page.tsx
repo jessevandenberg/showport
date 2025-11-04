@@ -127,6 +127,7 @@ type Project = {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const [showAlert, setShowAlert] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   const handleDemoClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (project.title.toLowerCase() === "isowise") {
@@ -190,7 +191,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
               Live Demo
             </a>
           ) : null}
-          <button className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5">meer info</button>
+          <button
+            onClick={() => {
+              if (project.title.toLowerCase() === "isowise") {
+                setShowVideo(true);
+              }
+            }}
+            className="rounded-full px-3 py-1 text-xs text-zinc-300 ring-1 ring-white/10 transition-colors hover:bg-white/5"
+          >
+            meer info
+          </button>
         </div>
       </div>
 
@@ -223,6 +233,27 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
         </div>
       ) : null}
+
+      {/* Video modal for ISOwise */}
+      {showVideo ? (
+        <div className="fixed inset-0 z-[60] grid place-items-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal>
+          <div className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/90 shadow-2xl">
+            <button
+              aria-label="Close"
+              onClick={() => setShowVideo(false)}
+              className="absolute right-3 top-3 z-10 rounded-md bg-black/30 p-2 text-zinc-300 ring-1 ring-white/10 hover:bg-black/50 hover:text-white"
+            >
+              <X size={18} />
+            </button>
+            <video
+              src="/isowise-intro.mov"
+              controls
+              autoPlay
+              className="h-full w-full"
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -240,7 +271,7 @@ const Projects = () => {
     {
       title: "digitaal dierenpaspoort",
       description: " een prototype van een digitaal dierenpaspoort voor de mensen in nederland",
-      tags: ["Next.js", "TypeScript", "tailwindcss"],
+      tags: ["Next.js", "TypeScript", "tailwindcss",],
       code: "https://github.com/jessevandenberg/digitaledierenpaspoort",
       demo: "https://digitaledierenpaspoort.vercel.app/",
       image: "/digitaal-dierenpaspoort.png",
