@@ -59,21 +59,21 @@ const Hero = () => {
         <div className="flex items-center gap-2 text-zinc-400">
           <Link
             aria-label="GitHub"
-            href="#"
+            href="https://github.com/jessevandenberg"
             className="rounded-full border border-white/10 p-2.5 transition-colors hover:bg-white/5 hover:text-white"
           >
             <Github size={18} />
           </Link>
           <Link
             aria-label="LinkedIn"
-            href="#"
+            href="https://www.linkedin.com/in/jesse-vdberg-9219a52a0/"
             className="rounded-full border border-white/10 p-2.5 transition-colors hover:bg-white/5 hover:text-white"
           >
             <Linkedin size={18} />
           </Link>
           <Link
             aria-label="Mail"
-            href="#contact"
+            href="mailto:vdbergjesse2018@gmail.com"
             className="rounded-full border border-white/10 p-2.5 transition-colors hover:bg-white/5 hover:text-white"
           >
             <Mail size={18} />
@@ -210,7 +210,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               <X />
             </div>
             <p className="relative text-center text-sm text-zinc-300">
-              De live demo van ISOwise is momenteel niet publiek beschikbaar.
+              deze actie is niet beschikbaar op dit moment. Druk op <span className="font-semibold text-zinc-100">meer info</span> voor een introductie video van de website.
             </p>
             <div className="relative mt-5 flex justify-center gap-2">
               <button
@@ -247,7 +247,7 @@ const Projects = () => {
     },
     {
       title: "KNMI promotie website",
-      description: "",
+      description: "dit is een website die ik heb gemaakt voor de KNMI om de promotie van de website te helpen.",
       tags: ["typescript", "Next.js", "tailwindcss"],
       code: "https://github.com/jessevandenberg/knmi-app-website",
       demo: "https://knmi-website.vercel.app/",
