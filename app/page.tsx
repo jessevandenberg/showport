@@ -112,6 +112,31 @@ const About = () => {
           <div key={idx} className="aspect-video rounded-2xl border border-white/10 bg-zinc-900/50" />
         ))}
       </div>
+
+      {/* Hover Image Stack Animation */}
+      <div className="relative mx-auto mt-12 flex max-w-5xl items-center justify-center gap-4 px-4">
+        {[
+          "/portfoliofoto.png",
+          "/398cb77a-a330-4781-bd90-29f64f702994.jpeg",
+          "/isowise.png",
+          "/digitaal-dierenpaspoort.png",
+          "/KNMI.png",
+        ].map((src, i) => (
+          <div
+            key={i}
+            className="group relative h-64 w-40 overflow-hidden rounded-2xl ring-1 ring-white/10 transition-all duration-500 hover:z-10 hover:scale-110 md:h-72 md:w-48"
+          >
+            <Image
+              src={src}
+              alt={`photo-${i + 1}`}
+              fill
+              sizes="(max-width: 768px) 40vw, 20vw"
+              className="object-cover opacity-70 transition-all duration-500 group-hover:opacity-100"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
