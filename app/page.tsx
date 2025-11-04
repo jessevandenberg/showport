@@ -386,14 +386,14 @@ const ImageOverlapStack = () => {
 
   const centerIndex = Math.floor(images.length / 2);
   const rotations = [-10, -5, 0, 5, 10];
-  const baseScale = [0.95, 0.98, 1.12, 0.98, 0.95]; // pyramid: center is biggest
-  const baseLiftY = [0, -4, -14, -4, 0]; // center lifted most
+  const baseScale = [0.93, 0.98, 1.12, 0.98, 0.93]; // pyramid: center is biggest
+  const baseLiftY = [1, -4, -14, -4, 1]; // center lifted most
 
   return (
     <div className="relative mx-auto mt-12 h-[26rem] w-full max-w-6xl select-none px-4 md:h-[28rem]">
       <div className="relative h-full w-full">
         {images.map((src, i) => {
-          const baseX = (i - centerIndex) * 100; // spacing with strong overlap
+          const baseX = (i - centerIndex) * 120; // spacing with strong overlap
           let shift = 0;
           if (hovered !== null && hovered !== i) {
             const distance = Math.abs(i - (hovered as number));
