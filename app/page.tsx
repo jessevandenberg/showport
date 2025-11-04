@@ -380,7 +380,7 @@ const ImageOverlapStack = () => {
     "/398cb77a-a330-4781-bd90-29f64f702994.jpeg",
     "/isowise.png",
     "/digitaal-dierenpaspoort.png",
-    "/KNMI.png",
+    "/valorant-admin.png",
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
