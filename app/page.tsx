@@ -275,7 +275,7 @@ const Projects = () => {
     },
     {
       title: "KNMI promotie website",
-      description: "dit is een website die ik heb gemaakt voor de KNMI om de promotie van de website te helpen.",
+      description: "dit is een website die ik heb gemaakt voor de KNMI om de promotie van de website te helpen. het is mogelijk dat de website niet goed werkt in dat geval refresh de pagina.",
       tags: ["typescript", "Next.js", "tailwindcss","groepsproject"],
       code: "https://github.com/jessevandenberg/knmi-app-website",
       demo: "https://knmi-website.vercel.app/",
