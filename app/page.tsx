@@ -382,34 +382,43 @@ const ImageOverlapStack = () => {
     "/digitaal-dierenpaspoort.png",
     "/KNMI.png",
   ];
-  const [hovered, setHovered] = useState<number | null>(null);
 
+  const [hovered, setHovered] = useState<number | null>(null);
   const centerIndex = Math.floor(images.length / 2);
+
   const rotations = [-10, -5, 0, 5, 10];
-  const baseScale = [0.93, 0.98, 1.12, 0.98, 0.93]; // pyramid: center is biggest
-  const baseLiftY = [1, -4, -14, -4, 1]; // center lifted most
+  const baseScale = [0.93, 0.98, 1.12, 0.98, 0.93]; // piramide: midden grootste
 
   return (
     <div className="relative mx-auto mt-12 h-[26rem] w-full max-w-6xl select-none px-4 md:h-[28rem]">
       <div className="relative h-full w-full">
         {images.map((src, i) => {
-          const baseX = (i - centerIndex) * 120; // spacing with strong overlap
+          const distanceFromCenter = Math.abs(i - centerIndex);
+
+          // X-positie
+          const baseX = (i - centerIndex) * 120;
           let shift = 0;
           if (hovered !== null && hovered !== i) {
-            const distance = Math.abs(i - (hovered as number));
-            const dir = i < (hovered as number) ? -1 : 1;
-            shift = dir * (distance === 1 ? 28 : 18);
+            const dir = i < hovered ? -1 : 1;
+            shift = dir * (distanceFromCenter === 1 ? 28 : 18);
           }
-
           const translateX = baseX + shift;
-          const scale = hovered === i ? baseScale[i] + 0.06 : hovered === null ? baseScale[i] : baseScale[i] - 0.02;
-          const z = hovered === i ? 50 : 20 + i + (i === centerIndex ? 10 : 0);
+
+          // Schaal piramide
+          let scale = baseScale[i] - distanceFromCenter * 0.05;
+          if (hovered === i) scale += 0.06;
+
+          // Z-index piramide
+          const zIndex = hovered === i ? 100 : 50 - distanceFromCenter;
+
+          // Y-positie piramide
+          const translateY = distanceFromCenter * 10 - (hovered === i ? 6 : 0);
+
+          // Rotatie
+          const rotate = rotations[i];
+
+          // Opacity
           const opacity = hovered === null || hovered === i ? 0.98 : 0.8;
-          const rotate = (i - centerIndex) * 4;
-          const distanceFromCenter = Math.abs(i - centerIndex);
-          const baseTranslateY = distanceFromCenter * 10; // hoe verder van midden, hoe lager
-          const translateY =
-            (hovered === i ? baseTranslateY - 6 : baseTranslateY);
 
           return (
             <div
@@ -420,7 +429,7 @@ const ImageOverlapStack = () => {
               style={{
                 transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate}deg) scale(${scale})`,
                 transition: "transform 320ms ease, opacity 320ms ease",
-                zIndex: z,
+                zIndex,
                 opacity,
               }}
             >
@@ -438,4 +447,4 @@ const ImageOverlapStack = () => {
       </div>
     </div>
   );
-};
+}
