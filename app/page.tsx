@@ -310,8 +310,7 @@ const Contact = () => {
     <section id="contact" className="mx-auto w-full max-w-7xl px-8 py-32">
       <SectionHeading title="Get In" accent="Touch" />
       <p className="mx-auto mb-12 max-w-3xl text-center text-base text-zinc-400">
-        Have a project in mind or want to collaborate? Feel free to reach out. I’m always open to discussing new opportunities.
-      </p>
+       ben je opzoek naar een hardwerkende stagair? of zoek je iemand voor een fulltime-baan je bent altijd welkom een mail te sturen.      </p>
       <div className="grid gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 p-5 text-base text-zinc-300">
@@ -334,16 +333,16 @@ const Contact = () => {
           <div className="grid gap-4 md:grid-cols-2">
             <label className="flex flex-col gap-1 text-xs">
               Name
-              <input aria-label="name" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500" placeholder="Your name" />
+              <input aria-label="name" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500  text-zinc-100" placeholder="Your name" />
             </label>
             <label className="flex flex-col gap-1 text-xs">
               Email
-              <input aria-label="email" type="email" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500" placeholder="your.email@example.com" />
+              <input aria-label="email" type="email" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500 text-zinc-100" placeholder="your.email@example.com" />
             </label>
           </div>
           <label className="mt-3 flex flex-col gap-1 text-xs">
             Message
-            <textarea aria-label="message" rows={6} className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500" placeholder="Tell me about your project..." />
+            <textarea aria-label="message" rows={6} className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500  text-zinc-100" placeholder="Tell me about your project..." />
           </label>
           <div className="mt-4 flex justify-end">
             <button className="w-full rounded-md bg-sky-600 px-5 py-3 text-base font-medium text-white hover:bg-sky-500 md:w-auto">Send Message</button>
