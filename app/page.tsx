@@ -101,7 +101,7 @@ const About = () => {
         <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-6">
           <h3 className="mb-2 text-sm font-semibold text-zinc-200">Education</h3>
           <p className="text-sm leading-6 text-zinc-400">
-            Bachelor of ICT, Fontys ICT (2025, behaald). Belangrijkste prestaties: een platform en ID-SoCientificaat leren maken.
+            Bachelor of ICT, Fontys ICT TIlburg (2e jaar). Belangrijkste prestaties: maken van een platform voor het leren van het ISO-9001-certificaat.
           </p>
         </div>
       </div>
