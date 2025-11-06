@@ -333,16 +333,16 @@ const Contact = () => {
           <div className="grid gap-4 md:grid-cols-2">
             <label className="flex flex-col gap-1 text-xs">
               Name
-              <input aria-label="name" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500  text-zinc-100" placeholder="Your name" />
+              <input aria-label="name" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-400  text-zinc-100" placeholder="uw naam" />
             </label>
             <label className="flex flex-col gap-1 text-xs">
               Email
-              <input aria-label="email" type="email" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500 text-zinc-100" placeholder="your.email@example.com" />
+              <input aria-label="email" type="email" className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-540 text-zinc-100" placeholder="jou.email@example.com" />
             </label>
           </div>
           <label className="mt-3 flex flex-col gap-1 text-xs">
             Message
-            <textarea aria-label="message" rows={6} className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-500  text-zinc-100" placeholder="Tell me about your project..." />
+            <textarea aria-label="message" rows={6} className="rounded-md bg-zinc-800/80 px-4 py-3 outline-none ring-1 ring-white/10 placeholder:text-zinc-400  text-zinc-100" placeholder="Tell me about your project..." />
           </label>
           <div className="mt-4 flex justify-end">
             <button className="w-full rounded-md bg-sky-600 px-5 py-3 text-base font-medium text-white hover:bg-sky-500 md:w-auto">Send Message</button>
