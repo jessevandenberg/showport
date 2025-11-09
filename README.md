@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Jesse van den Berg – Portfolio Showcase
+Overzicht
 
-## Getting Started
+Deze portfolio-website is ontworpen om een overzicht te bieden van Jesse van den Berg's werk, vaardigheden en projecten. De site legt de focus op duidelijkheid, visuele aantrekkingskracht en gebruiksvriendelijkheid, met behulp van moderne webtechnologieën zoals Next.js, Tailwind CSS en TypeScript.
 
-First, run the development server:
+Belangrijkste features
 
-```bash
+Scroll-animaties: Dynamische transities van tekst en afbeeldingen voor een vloeiende ervaring.
+
+Projectweergave: Overzichtelijke presentatie van projecten met live demo’s en GitHub-links.
+
+Responsief ontwerp: Geoptimaliseerd voor desktop, tablet en mobiel.
+
+Component-based structuur: Herbruikbare componenten zoals ProjectCard, Header, en ContactForm.
+
+Contactsectie: Gemakkelijk bereikbaar via e-mail of telefoon.
+
+Sociale media integratie: Links naar professionele platforms en persoonlijke projecten.
+
+Doel
+
+Deze website dient als professioneel portfolio voor Jesse van den Berg, waarin zijn creativiteit, technische vaardigheden en projecten overzichtelijk worden gepresenteerd. Het doel is bezoekers te inspireren en potentiële werkgevers of opdrachtgevers te informeren.
+
+Gebruikte technologieën
+
+Next.js
+
+TypeScript
+
+Tailwind CSS
+
+Framer Motion
+
+Vercel (Deployment)
+
+Visual Studio Code
+
+Git & GitHub
+
+NPM
+
+Installatie
+Vereisten
+
+Node.js (LTS)
+
+npm
+
+Stappen
+# Clone de repository
+git clone https://github.com/jouwgebruikersnaam/showport.git
+cd showport
+
+# Installeer dependencies
+npm install
+
+# Start de ontwikkelserver
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open daarna je browser op http://localhost:3000
+.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Configuratie
 
-## Learn More
+Omgevingsvariabelen kunnen worden toegevoegd in .env.local indien nodig.
+Aanpassingen aan Next.js kunnen gedaan worden in next.config.mjs.
 
-To learn more about Next.js, take a look at the following resources:
+Scripts
+Command	Beschrijving
+npm run dev	Start de ontwikkelserver
+npm run build	Build voor productie
+npm start	Start de productieversie
+npm run lint	Code linten
+Projecten (Voorbeeld)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ISOwise – Platform voor ISO 9001 certificering (Next.js, TypeScript, Tailwind CSS, groepsproject)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Digitaal Dierenpaspoort – Prototype voor een digitaal dierenpaspoort (Next.js, TypeScript, Tailwind CSS, individueel project)
 
-## Deploy on Vercel
+KNMI Promotie Website – Promotie website voor KNMI (Next.js, TypeScript, Tailwind CSS, groepsproject)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Valorant Verse Admin Hub – Admin hub voor websitebeheer (Next.js, TypeScript, Tailwind CSS, individueel project)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contact
+
+Email: vdbergjesse2018@gmail.com
+
+Telefoon: +31 6 06454302
+
+Locatie: Oss, Noord-Brabant
+
+Licentie
+
+Dit project is gelicenseerd onder de MIT License.
+
+Live Demo
+
+https://showport.vercel.app/
