@@ -43,7 +43,7 @@ const Hero = () => {
       id="home"
       className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center gap-8 px-8 pt-28"
     >
-      <p className="bg-gradient-to-r from-purple-400 to-sky-500 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+      <p className="bg-linear-to-r from-purple-400 to-sky-500 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
         portfolio
       </p>
       <p className="-mt-6 text-6xl font-semibold text-white md:text-7xl lg:text-8xl">
@@ -151,7 +151,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               className="object-cover brightness-[0.95] contrast-[1.05] transition-transform duration-500 group-hover:scale-[1.04]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/10 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/80 via-zinc-950/10 to-transparent" />
           </>
         ) : (
           <div className="h-full w-full bg-zinc-800/60" />
@@ -183,7 +183,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleDemoClick}
-              className="rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:from-fuchsia-500 hover:to-purple-500"
+              className="rounded-full bg-linear-to-r from-fuchsia-600 to-purple-600 px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:from-fuchsia-500 hover:to-purple-500"
             >
               Live Demo
             </a>
@@ -203,7 +203,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       {/* Sweet alert style modal (only shown when ISOwise demo is clicked) */}
       {showAlert ? (
-        <div className="fixed inset-0 z-[60] grid place-items-center bg-black/60 p-4 backdrop-blur-sm" role="dialog" aria-modal>
+        <div className="fixed inset-0 z-60 grid place-items-center bg-black/60 p-4 backdrop-blur-sm" role="dialog" aria-modal>
           <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/90 p-6 shadow-2xl">
             <div className="absolute inset-x-0 -top-20 h-40 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.25),transparent_60%)]" />
             <button
@@ -233,7 +233,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       {/* Video modal for ISOwise */}
       {showVideo ? (
-        <div className="fixed inset-0 z-[60] grid place-items-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal>
+        <div className="fixed inset-0 z-60] grid place-items-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal>
           <div className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/90 shadow-2xl">
             <button
               aria-label="Close"
@@ -389,7 +389,7 @@ const ImageOverlapStack = () => {
   const baseScale = [0.93, 0.98, 1.12, 0.98, 0.93]; // piramide: midden grootste
 
   return (
-    <div className="relative mx-auto mt-12 h-[26rem] w-full max-w-6xl select-none px-4 md:h-[28rem]">
+    <div className="relative mx-auto mt-12 h-104 w-full max-w-6xl select-none px-4 md:h-112">
       <div className="relative h-full w-full">
         {images.map((src, i) => {
           const distanceFromCenter = Math.abs(i - centerIndex);
@@ -439,7 +439,7 @@ const ImageOverlapStack = () => {
                 sizes="(max-width: 768px) 85vw, 45vw"
                 className="object-cover"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/30 via-black/0 to-transparent" />
             </div>
           );
         })}
