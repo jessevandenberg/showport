@@ -13,20 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Jesse van den Berg • Portfolio",
-  description: "Showcase portfolio of Jesse van den Berg – ICT student & front-end.",
-  metadataBase: new URL("https://example.com"),
-  authors: [{ name: "Jesse van den Berg" }],
-  keywords: [
-    "Portfolio",
-    "Front-end",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{

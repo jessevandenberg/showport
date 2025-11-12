@@ -89,17 +89,16 @@ const About = () => {
     <section id="about" className="mx-auto w-full max-w-7xl px-8 py-32">
       <SectionHeading title="About" accent="Me" />
       <p className="mx-auto mb-12 max-w-3xl text-center text-base text-zinc-400">
-        I’m a dedicated ICT student with a passion for creating innovative solutions that make a difference in the digital world.
-      </p>
+      Ik ben een gedreven ICT-student met een passie voor het creëren van innovatieve oplossingen die een verschil maken in de digitale wereld.      </p>
       <div className="grid gap-8 md:grid-cols-2">
         <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-6">
-          <h3 className="mb-2 text-sm font-semibold text-zinc-200">My Journey</h3>
+          <h3 className="mb-2 text-sm font-semibold text-zinc-200">over mij</h3>
           <p className="text-sm leading-6 text-zinc-400">
             Ik ben Jesse van den Berg, 19 jaar en een student ICT aan Fontys, met een specialisatie in Media – Front-End Design. Ik ben creatief en heb een passie voor het vertalen van complexe vraagstukken/uitdagingen naar visueel aantrekkelijke websites en interfaces.
           </p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-6">
-          <h3 className="mb-2 text-sm font-semibold text-zinc-200">Education</h3>
+          <h3 className="mb-2 text-sm font-semibold text-zinc-200">opleiding</h3>
           <p className="text-sm leading-6 text-zinc-400">
             Bachelor of ICT, Fontys ICT TIlburg (2e jaar). Belangrijkste prestaties: maken van een platform voor het leren van het ISO-9001-certificaat.
           </p>
