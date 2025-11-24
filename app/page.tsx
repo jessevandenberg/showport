@@ -293,7 +293,7 @@ const Projects = () => {
     <section id="projects" className="mx-auto w-full max-w-7xl px-8 py-32">
       <SectionHeading title="Featured" accent="Projects" />
       <p className="mx-auto mb-12 max-w-3xl text-center text-base text-zinc-400">
-        A showcase of my recent work and personal projects that demonstrate my skills and passion for development.
+      Een showcase van mijn recente werk en persoonlijke projecten die mijn vaardigheden en passie voor ontwikkeling laten zien.
       </p>
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map((p) => (
