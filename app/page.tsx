@@ -202,7 +202,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       {/* Sweet alert style modal (only shown when ISOwise demo is clicked) */}
       {showAlert ? (
-        <div className="fixed inset-0 z-60 grid place-items-center bg-black/60 p-4 backdrop-blur-sm" role="dialog" aria-modal>
+        <div className="fixed inset-0 z-[100] grid place-items-center bg-black/60 p-4 backdrop-blur-sm" role="dialog" aria-modal>
           <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/90 p-6 shadow-2xl">
             <div className="absolute inset-x-0 -top-20 h-40 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.25),transparent_60%)]" />
             <button
@@ -232,7 +232,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
       {/* Video modal for ISOwise */}
       {showVideo ? (
-        <div className="fixed inset-0 z-60] grid place-items-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal>
+        <div className="fixed inset-0 z-[100] grid place-items-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal>
           <div className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/90 shadow-2xl">
             <button
               aria-label="Close"
@@ -375,7 +375,7 @@ export default function Home() {
 const ImageOverlapStack = () => {
   const images = [
     "/uitzicht.jpeg",
-    "mallorca1.jpeg",
+    "/mallorca1.jpeg",
     "/portfoliofoto.png",
     "/mallorca2.jpeg",
     "/skifoto.jpeg",
