@@ -318,7 +318,7 @@ const Contact = () => {
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 p-5 text-base text-zinc-300">
             <span className="rounded-md bg-zinc-800 px-2 py-1 text-xs">Phone</span>
-            <a href="tel:+31606454302" className="hover:underline">+31 6 06454302</a>
+            <a href="tel:+31606454302" className="hover:underline">+31 6 50440532</a>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900/60 p-5 text-base text-zinc-300">
             <span className="rounded-md bg-zinc-800 px-2 py-1 text-xs">Location</span>
